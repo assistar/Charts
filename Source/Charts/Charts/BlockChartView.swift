@@ -33,14 +33,14 @@ open class BlockChartView: BarLineChartViewBase
     open var plateColor = NSUIColor.clear
     
     /// The width the Block will have
-    open var blockWidth = CGFloat(10.0)
+    fileprivate var _blockWidth = CGFloat(10.0)
     
     /// The height the Block will have
-    open var blockHeight = CGFloat(10.0)
+    fileprivate var _blockHeight = CGFloat(10.0)
     
     /// - Returns: The radius of the Block
     /// **default**: 0.0
-    open var blockRadius: CGFloat = 0.0
+    fileprivate var _blockRadius: CGFloat = 0.0
     
     /// The space the Plate will have
     open var plateSpace = CGFloat(1.0)
@@ -50,6 +50,18 @@ open class BlockChartView: BarLineChartViewBase
     
     /// The font size the Block will have
     open var fontSize: CGFloat = 2.25
+    
+    /// The current x-scale factor
+    @objc open override var scaleX: CGFloat
+    {
+        return _scaleX
+    }
+    
+    /// The current y-scale factor
+    @objc open override var scaleY: CGFloat
+    {
+        return _scaleY
+    }
     
     open override var data: ChartData? {
         get
@@ -67,6 +79,10 @@ open class BlockChartView: BarLineChartViewBase
             }
             
             guard let dataSet = data?.dataSets.first as? BlockChartDataSet else { return }
+            
+            _blockWidth = dataSet.blockWidth
+            _blockHeight = dataSet.blockHeight
+            _blockRadius = dataSet.blockRadius
             
             let set0 = BlockChartDataSet(entries: values0)
             set0.setColor(plateColor)
@@ -93,22 +109,26 @@ open class BlockChartView: BarLineChartViewBase
                 let plateDataSet = blockData.plateDataSet as? BlockChartDataSet
                 else { return }
             
-            let transX: CGFloat = viewPortHandler.scaleX / self.scaleX
-            let transY: CGFloat = viewPortHandler.scaleY / self.scaleY
+            let transX: CGFloat = viewPortHandler.scaleX / self._scaleX
+            let transY: CGFloat = viewPortHandler.scaleY / self._scaleY
             
             guard self._transX != transX, self._transY != transY else { return }
             
+            if #available(iOS 8.2, *) {
+                blockData.setValueFont(.systemFont(ofSize: (self.fontSize * transY), weight: .bold))
+            }
+            
             blockData.blockSpace = self.blockSpace * transX
             
-            plateDataSet.blockWidth = self.blockWidth * transX
-            plateDataSet.blockHeight = self.blockHeight * transY
+            plateDataSet.blockWidth = self._blockWidth * transX
+            plateDataSet.blockHeight = self._blockHeight * transY
             
             for dataSet in dataSets.enumerated() {
                 guard let blockDataSet = dataSet.element as? BlockChartDataSet else { continue }
                 
-                blockDataSet.blockWidth = self.blockWidth * transX
-                blockDataSet.blockHeight = self.blockHeight * transY
-                blockDataSet.blockRadius = self.blockRadius * transX
+                blockDataSet.blockWidth = self._blockWidth * transX
+                blockDataSet.blockHeight = self._blockHeight * transY
+                blockDataSet.blockRadius = self._blockRadius * transX
             }
             
             self._transX = transX

@@ -97,7 +97,6 @@ class BlockChartViewController: DemoBaseViewController {
     fileprivate func initChartView() {
         chartView.delegate = self
         chartView.chartDescription?.enabled = false
-//        chartView.legend.enabled = false
         chartView.rightAxis.enabled = false
         
         chartView.dragEnabled = true
@@ -109,9 +108,6 @@ class BlockChartViewController: DemoBaseViewController {
         
         chartView.plateColor = NSUIColor(red: 19.0/255.0, green: 19.0/255.0, blue: 19.0/255.0, alpha: 1.0)
         chartView.plateSpace = plateSpace
-        chartView.blockWidth = blockWidth
-        chartView.blockHeight = blockHeight
-        chartView.blockRadius = blockRadius
         chartView.blockSpace = blockSpace
         chartView.fontSize = fontSize
     }
