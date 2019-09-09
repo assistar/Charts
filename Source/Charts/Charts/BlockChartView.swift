@@ -45,11 +45,20 @@ open class BlockChartView: BarLineChartViewBase
     /// The space the Plate will have
     open var plateSpace = CGFloat(1.0)
     
+    /// The offse the Plate will have
+    open var plateOffset = CGFloat(1.0)
+    
     /// The space the Block will have
     open var blockSpace = CGFloat(1.0)
     
     /// The font size the Block will have
     open var fontSize: CGFloat = 2.25
+    
+    /// The x-Granularity the Block will have
+    open var xGranularity: Double = 5
+    
+    /// The x-Granularity the Block will have
+    open var yGranularity: Double = 5
     
     /// The current x-scale factor
     @objc open override var scaleX: CGFloat
@@ -167,7 +176,21 @@ extension BlockChartView: BlockChartDataProvider {
     open var blockData: BlockChartData? { return _data as? BlockChartData }
     
     open func updateScale() {
+        guard
+            let dataSets = self.data?.dataSets,
+            let blockData = self.data as? BlockChartData
+            else { return }
+        
         _scaleX = viewPortHandler.scaleX
         _scaleY = viewPortHandler.scaleY
+        
+        let visible = Double(viewPortHandler.contentWidth / (_blockWidth * CGFloat(dataSets.count) + blockSpace + plateOffset)) * xGranularity
+        let leftHeight: Double = Double(viewPortHandler.contentHeight / (_blockHeight + plateSpace)) * yGranularity
+        let leftMax = (leftHeight < blockData.yMax) ? (blockData.yMax * 1.1) : leftHeight
+        
+        leftAxis.axisMaximum = leftMax
+        
+        setVisibleXRangeMaximum(visible)
+        setVisibleYRangeMaximum(leftHeight, axis: .left)
     }
 }

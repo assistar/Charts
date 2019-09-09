@@ -107,6 +107,9 @@ class BlockChartViewController: DemoBaseViewController {
         chartView.setViewPortOffsets(left: 55, top: 55, right: 0, bottom: 0)
         
         chartView.plateColor = NSUIColor(red: 19.0/255.0, green: 19.0/255.0, blue: 19.0/255.0, alpha: 1.0)
+        chartView.xGranularity = xGranularity
+        chartView.yGranularity = yGranularity
+        chartView.plateOffset = plateOffset
         chartView.plateSpace = plateSpace
         chartView.blockSpace = blockSpace
         chartView.fontSize = fontSize
@@ -177,15 +180,6 @@ class BlockChartViewController: DemoBaseViewController {
     }
     
     fileprivate func updateCharView() {
-        guard
-            let data = chartView.data as? BlockChartData,
-            let dataSets = chartView.data?.dataSets
-            else { return }
-        
-        let visible = Double(chartView.viewPortHandler.contentWidth / (blockWidth * CGFloat(dataSets.count) + blockSpace + plateOffset))
-        let leftHeight: Double = Double(chartView.viewPortHandler.contentHeight / (blockHeight + plateSpace)) * yGranularity
-        let leftMax = (leftHeight < data.yMax) ? (data.yMax * 1.1) : leftHeight
-        
         let leftAxis = chartView.leftAxis
         leftAxis.xOffset = 20
         leftAxis.labelTextColor = NSUIColor(red: 191.0/255.0, green: 191.0/255.0, blue: 191.0/255.0, alpha: 1.0)
@@ -193,7 +187,6 @@ class BlockChartViewController: DemoBaseViewController {
         leftAxis.drawGridLinesEnabled = false
         leftAxis.drawAxisLineEnabled = false
         leftAxis.axisMinimum = 0
-        leftAxis.axisMaximum = leftMax
         leftAxis.granularity = yGranularity
         
         guard let xAxis = chartView.xAxis as? XAxisBlockChart else { return }
@@ -217,9 +210,6 @@ class BlockChartViewController: DemoBaseViewController {
         legend.yOffset = 15
         legend.textColor = NSUIColor.white
         legend.setCustom(entries: [LegendEntry(label: "USD", form: Legend.Form.default, formSize: 0, formLineWidth: 0, formLineDashPhase: 0, formLineDashLengths: nil, formColor: nil)])
-        
-        chartView.setVisibleXRangeMaximum(visible)
-        chartView.setVisibleYRangeMaximum(leftHeight, axis: .left)
         
         chartView.updateScale()
     }
