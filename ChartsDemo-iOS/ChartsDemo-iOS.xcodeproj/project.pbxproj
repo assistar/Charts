@@ -135,6 +135,10 @@
 		5BEAED3C1ABC199F0013F194 /* ColoredLineChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BEAED3A1ABC199F0013F194 /* ColoredLineChartViewController.xib */; };
 		5BEAED401ABC1AC60013F194 /* SinusBarChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEAED3E1ABC1AC60013F194 /* SinusBarChartViewController.m */; };
 		5BEAED411ABC1AC60013F194 /* SinusBarChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BEAED3F1ABC1AC60013F194 /* SinusBarChartViewController.xib */; };
+		A7C1F520230E342B00EA4A38 /* BlockChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C1F51F230E342A00EA4A38 /* BlockChartViewController.m */; };
+		A7C1F521230E349C00EA4A38 /* BlockChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C1F51B230E341800EA4A38 /* BlockChartViewController.swift */; };
+		A7C1F523230E34FA00EA4A38 /* BlockChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C1F522230E34FA00EA4A38 /* BlockChartViewController.xib */; };
+		A7C1F524230E352200EA4A38 /* BlockChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C1F522230E34FA00EA4A38 /* BlockChartViewController.xib */; };
 		B64D06EB1FB199130067418D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B64D06EA1FB199130067418D /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -324,6 +328,10 @@
 		5BEAED3D1ABC1AC60013F194 /* SinusBarChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinusBarChartViewController.h; sourceTree = "<group>"; };
 		5BEAED3E1ABC1AC60013F194 /* SinusBarChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinusBarChartViewController.m; sourceTree = "<group>"; };
 		5BEAED3F1ABC1AC60013F194 /* SinusBarChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SinusBarChartViewController.xib; sourceTree = "<group>"; };
+		A7C1F51B230E341800EA4A38 /* BlockChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockChartViewController.swift; sourceTree = "<group>"; };
+		A7C1F51E230E342A00EA4A38 /* BlockChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockChartViewController.h; sourceTree = "<group>"; };
+		A7C1F51F230E342A00EA4A38 /* BlockChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockChartViewController.m; sourceTree = "<group>"; };
+		A7C1F522230E34FA00EA4A38 /* BlockChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockChartViewController.xib; sourceTree = "<group>"; };
 		B64D06EA1FB199130067418D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,6 +403,7 @@
 			children = (
 				225B36511F6EBA410005B3D5 /* AnotherBarChartViewController.swift */,
 				225B36581F6EBA410005B3D5 /* BarChartViewController.swift */,
+				A7C1F51B230E341800EA4A38 /* BlockChartViewController.swift */,
 				225B364E1F6EBA410005B3D5 /* BubbleChartViewController.swift */,
 				225B365A1F6EBA410005B3D5 /* CandleStickChartViewController.swift */,
 				225B36481F6EBA410005B3D5 /* ColoredLineChartViewController.swift */,
@@ -435,6 +444,7 @@
 			children = (
 				5BEAED111ABBFB2B0013F194 /* AnotherBarChartViewController.xib */,
 				5BD47E641ABB424E008FCEC6 /* BarChartViewController.xib */,
+				A7C1F522230E34FA00EA4A38 /* BlockChartViewController.xib */,
 				55E3564D1ADC638F00A57971 /* BubbleChartViewController.xib */,
 				5BEAED2B1ABC160F0013F194 /* CandleStickChartViewController.xib */,
 				5BEAED3A1ABC199F0013F194 /* ColoredLineChartViewController.xib */,
@@ -544,6 +554,8 @@
 				5BEAED101ABBFB2B0013F194 /* AnotherBarChartViewController.m */,
 				5BD47E621ABB424E008FCEC6 /* BarChartViewController.h */,
 				5BD47E631ABB424E008FCEC6 /* BarChartViewController.m */,
+				A7C1F51E230E342A00EA4A38 /* BlockChartViewController.h */,
+				A7C1F51F230E342A00EA4A38 /* BlockChartViewController.m */,
 				55E3564E1ADC638F00A57971 /* BubbleChartViewController.h */,
 				55E3564F1ADC638F00A57971 /* BubbleChartViewController.m */,
 				5BEAED291ABC160F0013F194 /* CandleStickChartViewController.h */,
@@ -658,7 +670,9 @@
 				TargetAttributes = {
 					225B361C1F6EB9A50005B3D5 = {
 						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 4UQ92CZ873;
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
 					};
 					5B57BBAE1A9B26AA0036A6CC = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -744,6 +758,7 @@
 				225B36861F6EBA640005B3D5 /* PositiveNegativeBarChartViewController.xib in Resources */,
 				225B36831F6EBA640005B3D5 /* NegativeStackedBarChartViewController.xib in Resources */,
 				225B36761F6EBA640005B3D5 /* BubbleChartViewController.xib in Resources */,
+				A7C1F524230E352200EA4A38 /* BlockChartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +795,7 @@
 				5BEAED1E1ABBFB340013F194 /* StackedBarChartViewController.xib in Resources */,
 				5B1B5DAB1E911A15006D1375 /* RealmDemosViewController.xib in Resources */,
 				55E356501ADC638F00A57971 /* BubbleChartViewController.xib in Resources */,
+				A7C1F523230E34FA00EA4A38 /* BlockChartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +806,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C1F521230E349C00EA4A38 /* BlockChartViewController.swift in Sources */,
 				225B365E1F6EBA470005B3D5 /* LineChartTimeViewController.swift in Sources */,
 				225B36311F6EB9EE0005B3D5 /* DemoBaseViewController.swift in Sources */,
 				225B36391F6EBA040005B3D5 /* DayAxisValueFormatter.swift in Sources */,
@@ -858,6 +875,7 @@
 				5BEAED3B1ABC199F0013F194 /* ColoredLineChartViewController.m in Sources */,
 				5BDEDC411ABB7F73007D3A60 /* HorizontalBarChartViewController.m in Sources */,
 				5BEAED121ABBFB2B0013F194 /* AnotherBarChartViewController.m in Sources */,
+				A7C1F520230E342B00EA4A38 /* BlockChartViewController.m in Sources */,
 				5BEAED311ABC18F00013F194 /* CubicLineChartViewController.m in Sources */,
 				5BEAED1D1ABBFB340013F194 /* StackedBarChartViewController.m in Sources */,
 				5BD47E601ABB3C91008FCEC6 /* LineChart2ViewController.m in Sources */,
@@ -899,13 +917,17 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4UQ92CZ873;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dcg.ChartsDemo-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appzyn.ChartsDemo-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -929,14 +951,18 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4UQ92CZ873;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dcg.ChartsDemo-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appzyn.ChartsDemo-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
