@@ -98,7 +98,6 @@ open class BlockChartView: BarLineChartViewBase
             
             guard self._transX != transX, self._transY != transY else { return }
             
-            blockData.setValueFont(.systemFont(ofSize: (self.fontSize * transY), weight: .bold))
             blockData.blockSpace = self.blockSpace * transX
             
             plateDataSet.blockWidth = self.blockWidth * transX
