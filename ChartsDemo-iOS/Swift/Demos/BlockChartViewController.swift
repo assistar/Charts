@@ -62,8 +62,8 @@ class BlockChartViewController: DemoBaseViewController {
         slidersValueChanged(nil)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         updateChartData()
         updateCharView()
@@ -201,15 +201,6 @@ class BlockChartViewController: DemoBaseViewController {
         xAxis.optionalValueFormatter = BlockChartOptionalWeekFormatter()
         xAxis.optionalLabelTextColor = NSUIColor(red: 162.0/255.0, green: 162.0/255.0, blue: 162.0/255.0, alpha: 1.0)
         xAxis.optionalLabelFont = .systemFont(ofSize: 10, weight: .semibold)
-        
-        let legend = chartView.legend
-        legend.horizontalAlignment = .left
-        legend.verticalAlignment = .top
-        legend.font = .systemFont(ofSize: 13, weight: .bold)
-        legend.xOffset = 10
-        legend.yOffset = 15
-        legend.textColor = NSUIColor.white
-        legend.setCustom(entries: [LegendEntry(label: "USD", form: Legend.Form.default, formSize: 0, formLineWidth: 0, formLineDashPhase: 0, formLineDashLengths: nil, formColor: nil)])
         
         chartView.updateScale()
     }

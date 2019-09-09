@@ -181,9 +181,6 @@ extension BlockChartView: BlockChartDataProvider {
             let blockData = self.data as? BlockChartData
             else { return }
         
-        _scaleX = viewPortHandler.scaleX
-        _scaleY = viewPortHandler.scaleY
-        
         let visible = Double(viewPortHandler.contentWidth / (_blockWidth * CGFloat(dataSets.count) + blockSpace + plateOffset)) * xGranularity
         let leftHeight: Double = Double(viewPortHandler.contentHeight / (_blockHeight + plateSpace)) * yGranularity
         let leftMax = (leftHeight < blockData.yMax) ? (blockData.yMax * 1.1) : leftHeight
@@ -192,5 +189,8 @@ extension BlockChartView: BlockChartDataProvider {
         
         setVisibleXRangeMaximum(visible)
         setVisibleYRangeMaximum(leftHeight, axis: .left)
+        
+        _scaleX = viewPortHandler.scaleX
+        _scaleY = viewPortHandler.scaleY
     }
 }
